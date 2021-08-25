@@ -1,0 +1,9 @@
+[submodule "CppLearn"]
+	path = CppLearn
+	url = https://github.com/TDAkory/CppLearn.git
+[submodule "GoLearn"]
+	path = GoLearn
+	url = https://github.com/TDAkory/GoLearn.git
+[submodule "LinuxLearn"]
+	path = LinuxLearn
+	url = https://github.com/TDAkory/LinuxLearn.git
