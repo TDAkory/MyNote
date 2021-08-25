@@ -1,9 +1,12 @@
 [submodule "CppLearn"]
 	path = CppLearn
 	url = https://github.com/TDAkory/CppLearn.git
+	branch = master
 [submodule "GoLearn"]
 	path = GoLearn
 	url = https://github.com/TDAkory/GoLearn.git
+	branch = main
 [submodule "LinuxLearn"]
 	path = LinuxLearn
 	url = https://github.com/TDAkory/LinuxLearn.git
+	branch = master
