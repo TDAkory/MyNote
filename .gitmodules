@@ -10,3 +10,7 @@
 	path = LinuxLearn
 	url = https://github.com/TDAkory/LinuxLearn.git
 	branch = master
+[submodule "AppFrameThoughts"]
+	path = AppFrameThoughts
+	url = https://github.com/TDAkory/AppFrameThoughts.git
+	branch = master
