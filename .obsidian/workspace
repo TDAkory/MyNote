@@ -7,11 +7,8 @@
         "id": "64ed2bf0d84e62fc",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
-            "mode": "source"
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +84,15 @@
   },
   "active": "64ed2bf0d84e62fc",
   "lastOpenFiles": [
+    "CppLearn/basics/memory_management/stl-allocator.md",
+    "README.md",
+    "CppLearn/SUMMARY.md",
+    "GoLearn/SomeTips/02_GOTT_best_practice.md",
+    "GoLearn/SomeTips/01_slice_map_channel.md",
+    "CppLearn/basics/about_template/02_class_template.md",
     "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
     "AppFrameThoughts/monitor/metric/prometheus/README.md",
     "GoLearn/README.md",
-    "AppFrameThoughts/articles/untitled.md",
-    "AppFrameThoughts/SUMMARY.md",
-    "AppFrameThoughts/CNCF/Kubernetes/未命名.md",
-    "AppFrameThoughts/CNCF/Docker/未命名.md",
-    "README.md",
-    "AppFrameThoughts/monitor/metrics.md",
-    "AppFrameThoughts/monitor/log.md"
+    "AppFrameThoughts/articles/untitled.md"
   ]
 }
