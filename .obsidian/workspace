@@ -70,7 +70,7 @@
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
+                "backlinkCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
@@ -84,15 +84,15 @@
   },
   "active": "64ed2bf0d84e62fc",
   "lastOpenFiles": [
+    "CppLearn/SUMMARY.md",
+    "CSFundations/algorithem/page-2.md",
     "CppLearn/basics/memory_management/stl-allocator.md",
     "README.md",
-    "CppLearn/SUMMARY.md",
     "GoLearn/SomeTips/02_GOTT_best_practice.md",
     "GoLearn/SomeTips/01_slice_map_channel.md",
     "CppLearn/basics/about_template/02_class_template.md",
     "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
     "AppFrameThoughts/monitor/metric/prometheus/README.md",
-    "GoLearn/README.md",
-    "AppFrameThoughts/articles/untitled.md"
+    "GoLearn/README.md"
   ]
 }

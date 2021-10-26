@@ -18,3 +18,9 @@
 	path = CSFundations
 	url = https://github.com/TDAkory/CSFundations.git
 	branch = master
+[submodule "RustLearn"]
+	path = RustLearn
+	url = https://github.com/TDAkory/RustLearn.git
+[submodule "PythonLearn"]
+	path = PythonLearn
+	url = https://github.com/TDAkory/PythonLearn.git
