@@ -5,7 +5,7 @@
 [submodule "GoLearn"]
 	path = GoLearn
 	url = https://github.com/TDAkory/GoLearn.git
-	branch = main
+	branch = master
 [submodule "LinuxLearn"]
 	path = LinuxLearn
 	url = https://github.com/TDAkory/LinuxLearn.git
@@ -21,6 +21,8 @@
 [submodule "RustLearn"]
 	path = RustLearn
 	url = https://github.com/TDAkory/RustLearn.git
+	branch = master
 [submodule "PythonLearn"]
 	path = PythonLearn
 	url = https://github.com/TDAkory/PythonLearn.git
+	branch = master
