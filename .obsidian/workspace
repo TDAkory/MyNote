@@ -7,8 +7,22 @@
         "id": "64ed2bf0d84e62fc",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "CppLearn/basics/tips.md",
+            "mode": "source"
+          }
+        }
+      },
+      {
+        "id": "7e15731f23171065",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "CppLearn/basics/tips.md",
+            "mode": "preview"
+          }
         }
       }
     ],
@@ -49,7 +63,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e59ddd4a5e852d91",
@@ -65,6 +80,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CppLearn/basics/tips.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +100,7 @@
   },
   "active": "64ed2bf0d84e62fc",
   "lastOpenFiles": [
+    "CppLearn/basics/tips.md",
     "CppLearn/SUMMARY.md",
     "CSFundations/algorithem/page-2.md",
     "CppLearn/basics/memory_management/stl-allocator.md",
@@ -92,7 +109,6 @@
     "GoLearn/SomeTips/01_slice_map_channel.md",
     "CppLearn/basics/about_template/02_class_template.md",
     "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
-    "AppFrameThoughts/monitor/metric/prometheus/README.md",
-    "GoLearn/README.md"
+    "AppFrameThoughts/monitor/metric/prometheus/README.md"
   ]
 }
