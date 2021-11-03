@@ -1,6 +1,14 @@
+[submodule "AppFrameThoughts"]
+	path = AppFrameThoughts
+	url = https://github.com/TDAkory/AppFrameThoughts.git
+	branch = master
 [submodule "CppLearn"]
 	path = CppLearn
 	url = https://github.com/TDAkory/CppLearn.git
+	branch = master
+[submodule "CSFundations"]
+	path = CSFundations
+	url = https://github.com/TDAkory/CSFundations.git
 	branch = master
 [submodule "GoLearn"]
 	path = GoLearn
@@ -10,19 +18,11 @@
 	path = LinuxLearn
 	url = https://github.com/TDAkory/LinuxLearn.git
 	branch = master
-[submodule "AppFrameThoughts"]
-	path = AppFrameThoughts
-	url = https://github.com/TDAkory/AppFrameThoughts.git
-	branch = master
-[submodule "CSFundations"]
-	path = CSFundations
-	url = https://github.com/TDAkory/CSFundations.git
+[submodule "PythonLearn"]
+	path = PythonLearn
+	url = https://github.com/TDAkory/PythonLearn.git
 	branch = master
 [submodule "RustLearn"]
 	path = RustLearn
 	url = https://github.com/TDAkory/RustLearn.git
-	branch = master
-[submodule "PythonLearn"]
-	path = PythonLearn
-	url = https://github.com/TDAkory/PythonLearn.git
 	branch = master
