@@ -1,26 +1,15 @@
 {
   "main": {
-    "id": "060af1fd8530ef01",
+    "id": "efaeda6e09b5bd68",
     "type": "split",
     "children": [
       {
-        "id": "64ed2bf0d84e62fc",
+        "id": "b22f3fba9171ba3b",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CppLearn/basics/tips.md",
-            "mode": "source"
-          }
-        }
-      },
-      {
-        "id": "7e15731f23171065",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "CppLearn/basics/tips.md",
+            "file": "CppLearn/Basics/About_template/02_class_template.md",
             "mode": "preview"
           }
         }
@@ -63,8 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 214
   },
   "right": {
     "id": "e59ddd4a5e852d91",
@@ -80,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CppLearn/basics/tips.md",
+                "file": "CppLearn/Basics/About_template/02_class_template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,8 +86,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "64ed2bf0d84e62fc",
+  "active": "b22f3fba9171ba3b",
   "lastOpenFiles": [
+    "CppLearn/Basics/About_template/02_class_template.md",
+    "CppLearn/Basics/About_template/README.md",
     "CppLearn/basics/tips.md",
     "CppLearn/SUMMARY.md",
     "CSFundations/algorithem/page-2.md",
@@ -107,8 +97,6 @@
     "README.md",
     "GoLearn/SomeTips/02_GOTT_best_practice.md",
     "GoLearn/SomeTips/01_slice_map_channel.md",
-    "CppLearn/basics/about_template/02_class_template.md",
-    "AppFrameThoughts/monitor/metric/prometheus/01_source_code_structure.md",
-    "AppFrameThoughts/monitor/metric/prometheus/README.md"
+    "CppLearn/basics/about_template/02_class_template.md"
   ]
 }
