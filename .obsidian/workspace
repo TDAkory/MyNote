@@ -7,11 +7,8 @@
         "id": "b22f3fba9171ba3b",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "CppLearn/Basics/About_template/02_class_template.md",
-            "mode": "preview"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CppLearn/Basics/About_template/02_class_template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
