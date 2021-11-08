@@ -26,3 +26,6 @@
 	path = RustLearn
 	url = https://github.com/TDAkory/RustLearn.git
 	branch = master
+[submodule "Readings"]
+	path = Readings
+	url = https://github.com/TDAkory/Readings.git
