@@ -1,13 +1,13 @@
 {
   "main": {
-    "id": "efaeda6e09b5bd68",
+    "id": "94702ec6e5c46dc4",
     "type": "split",
     "children": [
       {
-        "id": "b22f3fba9171ba3b",
+        "id": "abe1b6e022d4346b",
         "type": "leaf",
         "state": {
-          "type": "empty",
+          "type": "graph",
           "state": {}
         }
       }
@@ -49,7 +49,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214
+    "width": 214,
+    "collapsed": true
   },
   "right": {
     "id": "e59ddd4a5e852d91",
@@ -82,8 +83,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b22f3fba9171ba3b",
+  "active": "abe1b6e022d4346b",
   "lastOpenFiles": [
+    "AppFrameThoughts/SUMMARY.md",
+    "AppFrameThoughts/BigData/01_shared_nothing_shared_dist.md",
     "CppLearn/Basics/About_template/02_class_template.md",
     "CppLearn/Basics/About_template/README.md",
     "CppLearn/basics/tips.md",
@@ -91,8 +94,6 @@
     "CSFundations/algorithem/page-2.md",
     "CppLearn/basics/memory_management/stl-allocator.md",
     "README.md",
-    "GoLearn/SomeTips/02_GOTT_best_practice.md",
-    "GoLearn/SomeTips/01_slice_map_channel.md",
-    "CppLearn/basics/about_template/02_class_template.md"
+    "GoLearn/SomeTips/02_GOTT_best_practice.md"
   ]
 }
