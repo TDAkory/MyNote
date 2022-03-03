@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "abe1b6e022d4346b",
+        "id": "49b5740ce3327dcd",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "CppLearn/Basic_Concept/About_template/README.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -49,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214,
+    "width": 370,
     "collapsed": true
   },
   "right": {
@@ -66,13 +69,14 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CppLearn/Basic_Concept/About_template/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": true,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           }
@@ -83,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "abe1b6e022d4346b",
+  "active": "49b5740ce3327dcd",
   "lastOpenFiles": [
+    "CppLearn/Basic_Concept/About_template/README.md",
+    "CppLearn/Basic_Concept/About_template/08_instantiation.md",
+    "CppLearn/Basic_Concept/About_template/04_some_template_skill.md",
+    "CppLearn/SUMMARY.md",
+    "CppLearn/Basic_Concept/Basic_concepts/Things_about_std_funcs.md",
+    "CppLearn/Basic_Concept/About_template/10_specialization_and_overloading.md",
+    "AppFrameThoughts/BigData/01_shared_nothing_shared_disk.md",
     "AppFrameThoughts/SUMMARY.md",
     "AppFrameThoughts/BigData/01_shared_nothing_shared_dist.md",
-    "CppLearn/Basics/About_template/02_class_template.md",
-    "CppLearn/Basics/About_template/README.md",
-    "CppLearn/basics/tips.md",
-    "CppLearn/SUMMARY.md",
-    "CSFundations/algorithem/page-2.md",
-    "CppLearn/basics/memory_management/stl-allocator.md",
-    "README.md",
-    "GoLearn/SomeTips/02_GOTT_best_practice.md"
+    "CppLearn/Basics/About_template/02_class_template.md"
   ]
 }
