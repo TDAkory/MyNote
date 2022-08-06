@@ -4,13 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "49b5740ce3327dcd",
+        "id": "7c13f9d5c93048b2",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CppLearn/Basic_Concept/About_template/README.md",
-            "mode": "source"
+            "file": "CppLearn/Basic_Concept/About_template/01_method_template.md",
+            "mode": "preview",
+            "source": false
           }
         }
       }
@@ -52,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370,
-    "collapsed": true
+    "width": 370
   },
   "right": {
     "id": "e59ddd4a5e852d91",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CppLearn/Basic_Concept/About_template/README.md",
+                "file": "CppLearn/Basic_Concept/About_template/01_method_template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +87,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "49b5740ce3327dcd",
+  "active": "7c13f9d5c93048b2",
   "lastOpenFiles": [
     "CppLearn/Basic_Concept/About_template/README.md",
     "CppLearn/Basic_Concept/About_template/08_instantiation.md",
