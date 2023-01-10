@@ -2,5 +2,7 @@
   "spellcheck": true,
   "foldHeading": true,
   "showLineNumber": true,
-  "useTab": false
+  "useTab": false,
+  "legacyEditor": false,
+  "livePreview": true
 }

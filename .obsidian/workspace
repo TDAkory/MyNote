@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CppLearn/Basic_Concept/About_template/01_method_template.md",
-            "mode": "preview",
+            "file": "LinuxLearn/godeep/Things_about_proc_meminfo.md",
+            "mode": "source",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CppLearn/Basic_Concept/About_template/01_method_template.md",
+                "file": "LinuxLearn/godeep/Things_about_proc_meminfo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "7c13f9d5c93048b2",
   "lastOpenFiles": [
-    "CppLearn/Basic_Concept/About_template/README.md",
-    "CppLearn/Basic_Concept/About_template/08_instantiation.md",
-    "CppLearn/Basic_Concept/About_template/04_some_template_skill.md",
+    "LinuxLearn/godeep/Things_about_proc_meminfo.md",
+    "LinuxLearn/README.md",
+    "LinuxLearn/basics/linux_memory_management/01_memory_layout.md.md",
+    "RustLearn/Basics/03_ownership.md",
+    "RustLearn/Basics/02_common_concepts.md",
+    "RustLearn/SUMMARY.md",
     "CppLearn/SUMMARY.md",
-    "CppLearn/Basic_Concept/Basic_concepts/Things_about_std_funcs.md",
-    "CppLearn/Basic_Concept/About_template/10_specialization_and_overloading.md",
-    "AppFrameThoughts/BigData/01_shared_nothing_shared_disk.md",
-    "AppFrameThoughts/SUMMARY.md",
-    "AppFrameThoughts/BigData/01_shared_nothing_shared_dist.md",
-    "CppLearn/Basics/About_template/02_class_template.md"
+    "CppLearn/README.md",
+    "README.md",
+    "RustLearn/README.md"
   ]
 }
