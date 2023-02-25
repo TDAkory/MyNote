@@ -4,5 +4,6 @@
   "showLineNumber": true,
   "useTab": false,
   "legacyEditor": false,
-  "livePreview": true
+  "livePreview": true,
+  "promptDelete": false
 }

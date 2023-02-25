@@ -1,4 +1,6 @@
 {
   "baseFontSize": 16,
-  "theme": "moonstone"
+  "theme": "system",
+  "accentColor": "#29759e",
+  "cssTheme": "Minimal"
 }
