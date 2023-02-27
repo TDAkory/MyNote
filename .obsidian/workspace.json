@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "83872b00f3299427",
+        "id": "884770a51471dbdb",
         "type": "tabs",
         "children": [
           {
-            "id": "0d3fbd025e6fd6a8",
+            "id": "a626b73fcc484f6a",
             "type": "leaf",
             "state": {
               "type": "diff-view",
               "state": {
-                "file": "CppLearn",
+                "file": "AppFrameThoughts",
                 "staged": false
               }
             }
@@ -120,6 +120,7 @@
   },
   "active": "a1c9ded4cbb5fff0",
   "lastOpenFiles": [
+    "2023-02-27.md",
     "CppLearn/README.md",
     "CppLearn/SUMMARY.md",
     "未命名.canvas",
@@ -128,7 +129,6 @@
     "CppLearn/Basic_Concept/Things_About/Things_about_output_Format.md",
     "CppLearn/Basic_Concept/Things_About/Things_about_core_guidelines.md",
     "CppLearn/Basic_Concept/Things_About/Things_about_exceptions.md",
-    "LinuxLearn/godeep/Things_about_proc_meminfo.md",
-    "LinuxLearn/README.md"
+    "LinuxLearn/godeep/Things_about_proc_meminfo.md"
   ]
 }
