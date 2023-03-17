@@ -4,17 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "884770a51471dbdb",
+        "id": "3a1cf2f9fc9cafe4",
         "type": "tabs",
         "children": [
           {
-            "id": "a626b73fcc484f6a",
+            "id": "fd066ea4d2d393f6",
             "type": "leaf",
             "state": {
-              "type": "diff-view",
+              "type": "markdown",
               "state": {
-                "file": "AppFrameThoughts",
-                "staged": false
+                "file": "CppLearn/Compile_Link/compile/gcc/gcc_param.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -60,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 251.5
   },
   "right": {
     "id": "e59ddd4a5e852d91",
@@ -76,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CppLearn/Compile_Link/compile/gcc/gcc_param.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,11 +105,12 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -115,20 +118,21 @@
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
       "command-palette:打开命令面板": false,
-      "markdown-importer:打开 Markdown 格式转换器": false
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "periodic-notes:Open today": false
     }
   },
-  "active": "a1c9ded4cbb5fff0",
+  "active": "fd066ea4d2d393f6",
   "lastOpenFiles": [
+    "CppLearn/Compile_Link/compile/gcc/gcc.md",
+    "CppLearn/Compile_Link/compile/gcc/extend_asm.md",
+    "CppLearn/Compile_Link/compile/cmake/tutorial.md",
+    "CppLearn/Compile_Link/compile/cmake/configure_file.md",
+    "CppLearn/Compile_Link/compile/cmake/command_and_params.md",
+    "CppLearn/Compile_Link/compile/cmake/cmake.md",
     "2023-02-27.md",
     "CppLearn/README.md",
     "CppLearn/SUMMARY.md",
-    "未命名.canvas",
-    "README.md",
-    "CppLearn/Basic_Concept/Things_About/Things_about_pointer.md",
-    "CppLearn/Basic_Concept/Things_About/Things_about_output_Format.md",
-    "CppLearn/Basic_Concept/Things_About/Things_about_core_guidelines.md",
-    "CppLearn/Basic_Concept/Things_About/Things_about_exceptions.md",
-    "LinuxLearn/godeep/Things_about_proc_meminfo.md"
+    "未命名.canvas"
   ]
 }
