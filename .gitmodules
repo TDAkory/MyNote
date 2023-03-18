@@ -1,31 +1,31 @@
 [submodule "AppFrameThoughts"]
 	path = AppFrameThoughts
-	url = https://github.com/TDAkory/AppFrameThoughts.git
+	url = git@github.com:TDAkory/AppFrameThoughts.git
 	branch = master
 [submodule "CppLearn"]
 	path = CppLearn
-	url = https://github.com/TDAkory/CppLearn.git
+	url = git@github.com:TDAkory/CppLearn.git
 	branch = master
 [submodule "CSFundations"]
 	path = CSFundations
-	url = https://github.com/TDAkory/CSFundations.git
+	url = git@github.com:TDAkory/CSFundations.git
 	branch = master
 [submodule "GoLearn"]
 	path = GoLearn
-	url = https://github.com/TDAkory/GoLearn.git
+	url = git@github.com:TDAkory/GoLearn.git
 	branch = master
 [submodule "LinuxLearn"]
 	path = LinuxLearn
-	url = https://github.com/TDAkory/LinuxLearn.git
+	url = git@github.com:TDAkory/LinuxLearn.git
 	branch = master
 [submodule "PythonLearn"]
 	path = PythonLearn
-	url = https://github.com/TDAkory/PythonLearn.git
+	url = git@github.com:TDAkory/PythonLearn.git
 	branch = master
 [submodule "RustLearn"]
 	path = RustLearn
-	url = https://github.com/TDAkory/RustLearn.git
+	url = git@github.com:TDAkory/RustLearn.git
 	branch = master
 [submodule "Readings"]
 	path = Readings
-	url = https://github.com/TDAkory/Readings.git
+	url = git@github.com:TDAkory/Readings.git
