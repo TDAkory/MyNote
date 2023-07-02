@@ -29,3 +29,6 @@
 [submodule "Readings"]
 	path = Readings
 	url = git@github.com:TDAkory/Readings.git
+[submodule "ZImages"]
+	path = ZImages
+	url = git@github.com:TDAkory/ImageResources.git
