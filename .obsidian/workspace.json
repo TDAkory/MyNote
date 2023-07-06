@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7071ff410c4154e4",
+        "id": "393da510a19b0a66",
         "type": "tabs",
         "children": [
           {
-            "id": "83c5a8281a0fc3f7",
+            "id": "dc8c3eed99421480",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AppFrameThoughts/CNCF/Docker/README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -56,8 +52,17 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "3e4e2e2e6117cb6b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -77,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AppFrameThoughts/CNCF/Docker/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,11 +108,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -119,8 +125,24 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "21c66b77f98972ff",
+  "active": "dc8c3eed99421480",
   "lastOpenFiles": [
+    "CppLearn/Basic_Concept/C++20/features.md",
+    "CppLearn/Topics/Standard_Lib/Make_shared.md",
+    "CppLearn/Framework/compiler_compiler/Bison/overall_layout_of_bison_grammer.md",
+    "README.md",
+    "CppLearn/CppSummary.md",
+    "CppLearn/Basic_Concept/About_template/07_name_in_template.md",
+    "CppLearn/Basic_Concept/About_template/06_template_go_deep.md",
+    "AppFrameThoughts/CNCF/Docker/README.md",
+    "CppLearn/Basic_Concept/Memory_management/allocator-design.md",
+    "CppLearn/Basic_Concept/Core_Guidelines/intro.md",
+    "CppLearn/Basic_Concept/Core_Guidelines/02_Interfaces.md",
+    "CppLearn/Basic_Concept/Core_Guidelines/01_philosophy.md",
+    "CppLearn/Compile_Link/compile/function_attribute/01_function_attribute.md",
+    "CppLearn/Compile_Link/compile/autotools/01_basic_ideas.md",
+    "LinuxLearn/godeep/proc_fs/Things_about_proc_fs.md",
+    "LinuxLearn/godeep/proc_fs/Things_about_proc_pid_fs.md",
     "AppFrameThoughts/Article/article_lists.md",
     "Readings/Math/read_list.md",
     "Readings/README.md",
@@ -133,12 +155,6 @@
     "未命名",
     "CppLearn/Compile_Link/compile/gcc/gcc.md",
     "CppLearn/Compile_Link/compile/gcc/extend_asm.md",
-    "CppLearn/Compile_Link/compile/cmake/tutorial.md",
-    "CppLearn/Compile_Link/compile/cmake/configure_file.md",
-    "CppLearn/Compile_Link/compile/cmake/command_and_params.md",
-    "CppLearn/Compile_Link/compile/cmake/cmake.md",
-    "2023-02-27.md",
-    "CppLearn/README.md",
-    "CppLearn/SUMMARY.md"
+    "CppLearn/Compile_Link/compile/cmake/tutorial.md"
   ]
 }
