@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "393da510a19b0a66",
+        "id": "d60fc90debe74378",
         "type": "tabs",
         "children": [
           {
-            "id": "dc8c3eed99421480",
+            "id": "e43b2a79f2fabdfc",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -61,8 +61,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -113,8 +112,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -125,8 +123,10 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "dc8c3eed99421480",
+  "active": "e43b2a79f2fabdfc",
   "lastOpenFiles": [
+    "2024-03-11.md",
+    "未命名.canvas",
     "CppLearn/Basic_Concept/C++20/features.md",
     "CppLearn/Topics/Standard_Lib/Make_shared.md",
     "CppLearn/Framework/compiler_compiler/Bison/overall_layout_of_bison_grammer.md",
@@ -148,13 +148,10 @@
     "Readings/README.md",
     "RustLearn/README.md",
     "RustLearn/SUMMARY.md",
-    "未命名.canvas",
     "CppLearn/Compile_Link/compile/gcc/gcc_param.md",
     "未命名.md",
     "未命名 1",
     "未命名",
-    "CppLearn/Compile_Link/compile/gcc/gcc.md",
-    "CppLearn/Compile_Link/compile/gcc/extend_asm.md",
-    "CppLearn/Compile_Link/compile/cmake/tutorial.md"
+    "CppLearn/Compile_Link/compile/gcc/gcc.md"
   ]
 }
