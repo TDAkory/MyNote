@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "d60fc90debe74378",
+        "id": "3238c28ddb31f5b2",
         "type": "tabs",
         "children": [
           {
-            "id": "e43b2a79f2fabdfc",
+            "id": "c1708dc3d33904d6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "CppLearn/Framework/leveldb/10_filter.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CppLearn/Framework/leveldb/10_filter.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,12 +112,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -123,35 +128,42 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "e43b2a79f2fabdfc",
+  "active": "c1708dc3d33904d6",
   "lastOpenFiles": [
-    "2024-03-11.md",
+    "CppLearn/Basic_Concept/c_binary_strat_up/Global_variable_init_sequence.md",
+    "CppLearn/Basic_Concept/c_binary_strat_up/General_understanding.md",
+    "CppLearn/Basic_Concept/Network_programming",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/README.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/13_trait_and_policy_class.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/12_polymorphic_power.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/11_future_direction.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/10_specialization_and_overloading.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/09_template_argument_deduction.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/08_instantiation.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/07_name_in_template.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/06_template_go_deep.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/05_template_on_hand.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/04_some_template_skill.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/03_template_non-type_parameter.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/02_class_template.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template/01_method_template.md",
+    "CppLearn/Basic_Concept/Meta_programming/About_template",
+    "CppLearn/Basic_Concept/Meta_programming/01_useful_template.md",
+    "CppLearn/Basic_Concept/Meta_programming",
+    "CppLearn/Basic_Concept/meta_programming/About_template/README.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/13_trait_and_policy_class.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/12_polymorphic_power.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/11_future_direction.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/10_specialization_and_overloading.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/09_template_argument_deduction.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/08_instantiation.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/07_name_in_template.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template/06_template_go_deep.md",
+    "CppLearn/Basic_Concept/meta_programming/About_template",
+    "CppLearn/Basic_Concept/c_binary_strat_up",
+    "CppLearn/Framework/c_binary_strat_up",
     "未命名.canvas",
-    "CppLearn/Basic_Concept/C++20/features.md",
-    "CppLearn/Topics/Standard_Lib/Make_shared.md",
-    "CppLearn/Framework/compiler_compiler/Bison/overall_layout_of_bison_grammer.md",
-    "README.md",
-    "CppLearn/CppSummary.md",
-    "CppLearn/Basic_Concept/About_template/07_name_in_template.md",
-    "CppLearn/Basic_Concept/About_template/06_template_go_deep.md",
-    "AppFrameThoughts/CNCF/Docker/README.md",
-    "CppLearn/Basic_Concept/Memory_management/allocator-design.md",
-    "CppLearn/Basic_Concept/Core_Guidelines/intro.md",
-    "CppLearn/Basic_Concept/Core_Guidelines/02_Interfaces.md",
-    "CppLearn/Basic_Concept/Core_Guidelines/01_philosophy.md",
-    "CppLearn/Compile_Link/compile/function_attribute/01_function_attribute.md",
-    "CppLearn/Compile_Link/compile/autotools/01_basic_ideas.md",
-    "LinuxLearn/godeep/proc_fs/Things_about_proc_fs.md",
-    "LinuxLearn/godeep/proc_fs/Things_about_proc_pid_fs.md",
-    "AppFrameThoughts/Article/article_lists.md",
-    "Readings/Math/read_list.md",
-    "Readings/README.md",
-    "RustLearn/README.md",
-    "RustLearn/SUMMARY.md",
-    "CppLearn/Compile_Link/compile/gcc/gcc_param.md",
-    "未命名.md",
     "未命名 1",
-    "未命名",
-    "CppLearn/Compile_Link/compile/gcc/gcc.md"
+    "未命名"
   ]
 }
