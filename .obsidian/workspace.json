@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "640fba71186a59e9",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.12"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -128,8 +139,30 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "c1708dc3d33904d6",
+  "active": "640fba71186a59e9",
   "lastOpenFiles": [
+    "LinuxLearn/basics/linux_memory_management/60_alternatives.md",
+    "AppFrameThoughts/DataBase/lessons_of_ditributed_db.md",
+    "AppFrameThoughts/DataBase/30_lessons_of_ditributed_db.md",
+    "AppFrameThoughts/DistributeSystem/Consensus_Algorithm.md",
+    "BlogSrc/Implement_a_cpp_coroutine_lib.md",
+    "CppLearn/HowToBeGreater.md",
+    "Readings/Japanese/N3_study_plan.md",
+    "Readings/Japanese",
+    "CppLearn/Basic_Concept/C++_Advanced/features.md",
+    "CppLearn/Basic_Concept/C++_Advanced/04_3_way_comparison.md",
+    "CppLearn/Basic_Concept/C++_Advanced/03_module.md",
+    "CppLearn/Basic_Concept/C++_Advanced/02_coroutine.md",
+    "CppLearn/Basic_Concept/C++_Advanced/02-1_another_explain.md",
+    "CppLearn/Basic_Concept/C++_Advanced/01_Concepts.md",
+    "CppLearn/Basic_Concept/C++_Advanced",
+    "CppLearn/Basic_Concept/Cpp_Advanced/features.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced/04_3_way_comparison.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced/03_module.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced/02_coroutine.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced/02-1_another_explain.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced/01_Concepts.md",
+    "CppLearn/Basic_Concept/Cpp_Advanced",
     "CppLearn/Basic_Concept/c_binary_strat_up/Global_variable_init_sequence.md",
     "CppLearn/Basic_Concept/c_binary_strat_up/General_understanding.md",
     "CppLearn/Basic_Concept/Network_programming",
@@ -138,32 +171,12 @@
     "CppLearn/Basic_Concept/Meta_programming/About_template/12_polymorphic_power.md",
     "CppLearn/Basic_Concept/Meta_programming/About_template/11_future_direction.md",
     "CppLearn/Basic_Concept/Meta_programming/About_template/10_specialization_and_overloading.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/09_template_argument_deduction.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/08_instantiation.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/07_name_in_template.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/06_template_go_deep.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/05_template_on_hand.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/04_some_template_skill.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/03_template_non-type_parameter.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/02_class_template.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/01_method_template.md",
     "CppLearn/Basic_Concept/Meta_programming/About_template",
-    "CppLearn/Basic_Concept/Meta_programming/01_useful_template.md",
     "CppLearn/Basic_Concept/Meta_programming",
-    "CppLearn/Basic_Concept/meta_programming/About_template/README.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/13_trait_and_policy_class.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/12_polymorphic_power.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/11_future_direction.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/10_specialization_and_overloading.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/09_template_argument_deduction.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/08_instantiation.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/07_name_in_template.md",
-    "CppLearn/Basic_Concept/meta_programming/About_template/06_template_go_deep.md",
     "CppLearn/Basic_Concept/meta_programming/About_template",
     "CppLearn/Basic_Concept/c_binary_strat_up",
     "CppLearn/Framework/c_binary_strat_up",
     "未命名.canvas",
-    "未命名 1",
-    "未命名"
+    "未命名 1"
   ]
 }
