@@ -13,24 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CppLearn/Framework/leveldb/10_filter.md",
+                "file": "BlogSrc/why_cpp_has_ADL.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "640fba71186a59e9",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.5.12"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CppLearn/Framework/leveldb/10_filter.md",
+                "file": "BlogSrc/why_cpp_has_ADL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,13 +128,22 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "640fba71186a59e9",
+  "active": "21c66b77f98972ff",
   "lastOpenFiles": [
+    "AppFrameThoughts/RPC/01_thrift_general.md",
+    "AppFrameThoughts/RPC",
+    "BlogSrc/flock_in_depth.md",
+    "BlogSrc/what_happens_between_socket_send_recv.md",
+    "BlogSrc/README.md",
+    "BlogSrc/Implement_a_cpp_coroutine_lib.md",
+    "CppLearn/Framework/leveldb/10_filter.md",
+    "PythonLearn/GoDeep/some_trick.md",
+    "CppLearn/Framework/leveldb/12_version_control.md",
+    "CppLearn/Framework/leveldb/11_db.md",
     "LinuxLearn/basics/linux_memory_management/60_alternatives.md",
     "AppFrameThoughts/DataBase/lessons_of_ditributed_db.md",
     "AppFrameThoughts/DataBase/30_lessons_of_ditributed_db.md",
     "AppFrameThoughts/DistributeSystem/Consensus_Algorithm.md",
-    "BlogSrc/Implement_a_cpp_coroutine_lib.md",
     "CppLearn/HowToBeGreater.md",
     "Readings/Japanese/N3_study_plan.md",
     "Readings/Japanese",
@@ -161,22 +159,13 @@
     "CppLearn/Basic_Concept/Cpp_Advanced/03_module.md",
     "CppLearn/Basic_Concept/Cpp_Advanced/02_coroutine.md",
     "CppLearn/Basic_Concept/Cpp_Advanced/02-1_another_explain.md",
-    "CppLearn/Basic_Concept/Cpp_Advanced/01_Concepts.md",
     "CppLearn/Basic_Concept/Cpp_Advanced",
-    "CppLearn/Basic_Concept/c_binary_strat_up/Global_variable_init_sequence.md",
-    "CppLearn/Basic_Concept/c_binary_strat_up/General_understanding.md",
     "CppLearn/Basic_Concept/Network_programming",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/README.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/13_trait_and_policy_class.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/12_polymorphic_power.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/11_future_direction.md",
-    "CppLearn/Basic_Concept/Meta_programming/About_template/10_specialization_and_overloading.md",
     "CppLearn/Basic_Concept/Meta_programming/About_template",
     "CppLearn/Basic_Concept/Meta_programming",
     "CppLearn/Basic_Concept/meta_programming/About_template",
     "CppLearn/Basic_Concept/c_binary_strat_up",
     "CppLearn/Framework/c_binary_strat_up",
-    "未命名.canvas",
-    "未命名 1"
+    "未命名.canvas"
   ]
 }
