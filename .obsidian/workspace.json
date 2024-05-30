@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BlogSrc/why_cpp_has_ADL.md",
+                "file": "CppLearn/Basic_Concept/Things_About/Trival,standard-layout,POD,literal-types.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "BlogSrc/why_cpp_has_ADL.md",
+                "file": "CppLearn/Basic_Concept/Things_About/Trival,standard-layout,POD,literal-types.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,8 +128,20 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "21c66b77f98972ff",
+  "active": "c1708dc3d33904d6",
   "lastOpenFiles": [
+    "BlogSrc/why_cpp_has_ADL.md",
+    "CppLearn/Basic_Concept/C++_Advanced/10_param_pack_and_fold_expression.md",
+    "AppFrameThoughts/0-Theory/0_theory.md",
+    "AppFrameThoughts/0-Theory",
+    "CppLearn/Basic_Concept/Multi_Process/02_things_about_async.md",
+    "CppLearn/Framework/stdexec/01_general.md",
+    "CppLearn/Framework/stdexec",
+    "CppLearn/Framework/asio/01_general.md",
+    "CppLearn/Framework/asio",
+    "CppLearn/Compile_Link/compile/basic_in_depth.md",
+    "RustLearn/Others_blogs.md",
+    "AppFrameThoughts/Computer/011_numa_concept.md",
     "AppFrameThoughts/RPC/01_thrift_general.md",
     "AppFrameThoughts/RPC",
     "BlogSrc/flock_in_depth.md",
@@ -149,23 +161,11 @@
     "Readings/Japanese",
     "CppLearn/Basic_Concept/C++_Advanced/features.md",
     "CppLearn/Basic_Concept/C++_Advanced/04_3_way_comparison.md",
-    "CppLearn/Basic_Concept/C++_Advanced/03_module.md",
-    "CppLearn/Basic_Concept/C++_Advanced/02_coroutine.md",
-    "CppLearn/Basic_Concept/C++_Advanced/02-1_another_explain.md",
-    "CppLearn/Basic_Concept/C++_Advanced/01_Concepts.md",
     "CppLearn/Basic_Concept/C++_Advanced",
-    "CppLearn/Basic_Concept/Cpp_Advanced/features.md",
-    "CppLearn/Basic_Concept/Cpp_Advanced/04_3_way_comparison.md",
-    "CppLearn/Basic_Concept/Cpp_Advanced/03_module.md",
-    "CppLearn/Basic_Concept/Cpp_Advanced/02_coroutine.md",
-    "CppLearn/Basic_Concept/Cpp_Advanced/02-1_another_explain.md",
     "CppLearn/Basic_Concept/Cpp_Advanced",
     "CppLearn/Basic_Concept/Network_programming",
     "CppLearn/Basic_Concept/Meta_programming/About_template",
     "CppLearn/Basic_Concept/Meta_programming",
-    "CppLearn/Basic_Concept/meta_programming/About_template",
-    "CppLearn/Basic_Concept/c_binary_strat_up",
-    "CppLearn/Framework/c_binary_strat_up",
     "未命名.canvas"
   ]
 }
