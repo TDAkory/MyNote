@@ -34,5 +34,5 @@
 	url = git@github.com:TDAkory/ImageResources.git
 [submodule "BlogSrc"]
 	path = BlogSrc
-	url = https://github.com/TDAkory/BlogSrc.git
+	url = git@github.com:TDAkory/BlogSrc.git
 	branch = master
