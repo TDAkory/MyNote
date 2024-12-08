@@ -2,6 +2,6 @@
 
 ##### Config
 ```shell
-git config user.email "jyzhaoseu@163.com"
-git config user.name "Kory" 
+git config --local user.email "jyzhaoseu@163.com"
+git config --local user.name "Kory" 
 ```
