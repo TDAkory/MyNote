@@ -29,9 +29,11 @@
 [submodule "Readings"]
 	path = Readings
 	url = git@github.com:TDAkory/Readings.git
+	branch = master
 [submodule "ZImages"]
 	path = ZImages
 	url = git@github.com:TDAkory/ImageResources.git
+	branch = master
 [submodule "BlogSrc"]
 	path = BlogSrc
 	url = git@github.com:TDAkory/BlogSrc.git
