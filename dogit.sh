@@ -21,7 +21,7 @@ case $COMMAND in
         fi
 
         echo "Executing git submodule update..."
-        git submodule update --remote
+        git submodule update
         if [ $? -ne 0 ]; then
             echo "Error: git submodule update failed"
             exit 1
