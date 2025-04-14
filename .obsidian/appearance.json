@@ -1,6 +1,9 @@
 {
-  "baseFontSize": 16,
+  "baseFontSize": 14,
   "theme": "moonstone",
   "accentColor": "#29759e",
-  "cssTheme": "Minimal"
+  "cssTheme": "AnuPpuccin",
+  "interfaceFontFamily": "Monaco",
+  "textFontFamily": "Monaco",
+  "monospaceFontFamily": "Consolas"
 }

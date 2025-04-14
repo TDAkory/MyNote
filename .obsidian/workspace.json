@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "3238c28ddb31f5b2",
+        "id": "20cd4461de1e7eb0",
         "type": "tabs",
         "children": [
           {
-            "id": "c1708dc3d33904d6",
+            "id": "b6dc0d74a93df442",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CppLearn/Basic_Concept/Things_About/Trival,standard-layout,POD,literal-types.md",
+                "file": "CppLearn/HowToBeGreater.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Trival,standard-layout,POD,literal-types"
-            }
-          },
-          {
-            "id": "779eda783c6e00c2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CppLearn/Basic_Concept/tips.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "tips"
+              "title": "HowToBeGreater"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -68,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#SIMD",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -166,11 +151,15 @@
       "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "779eda783c6e00c2",
+  "active": "b6dc0d74a93df442",
   "lastOpenFiles": [
-    "AppFrameThoughts/Storage/HBase",
+    "git_operations.py",
+    "PythonLearn/GoDeep/list.md",
     "未命名.canvas",
-    "CppLearn/Basic_Concept/tips.md",
+    "CppLearn/SIMD/01_basic_knowledge.md",
+    "CppLearn/Basic_Concept/Things_About/Trival,standard-layout,POD,literal-types.md",
+    "CppLearn/Basic_Concept/Tips.md",
+    "AppFrameThoughts/Storage/HBase",
     "CppLearn/Basic_Concept/Core_Guidelines/intro.md",
     "CppLearn/Basic_Concept/Core_Guidelines/02_Interfaces.md",
     "BlogSrc/why_cpp_has_ADL.md",
@@ -196,14 +185,10 @@
     "CppLearn/Framework/leveldb/12_version_control.md",
     "CppLearn/Framework/leveldb/11_db.md",
     "LinuxLearn/basics/linux_memory_management/60_alternatives.md",
-    "AppFrameThoughts/DataBase/lessons_of_ditributed_db.md",
-    "AppFrameThoughts/DataBase/30_lessons_of_ditributed_db.md",
-    "AppFrameThoughts/DistributeSystem/Consensus_Algorithm.md",
     "Readings/Japanese",
     "CppLearn/Basic_Concept/C++_Advanced",
     "CppLearn/Basic_Concept/Cpp_Advanced",
     "CppLearn/Basic_Concept/Network_programming",
-    "CppLearn/Basic_Concept/Meta_programming/About_template",
-    "CppLearn/Basic_Concept/Meta_programming"
+    "CppLearn/Basic_Concept/Meta_programming/About_template"
   ]
 }

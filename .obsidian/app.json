@@ -5,6 +5,8 @@
   "useTab": false,
   "legacyEditor": false,
   "livePreview": true,
-  "promptDelete": false,
-  "strictLineBreaks": true
+  "promptDelete": true,
+  "strictLineBreaks": true,
+  "useMarkdownLinks": true,
+  "readableLineLength": false
 }
