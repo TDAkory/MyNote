@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b6dc0d74a93df442",
+            "id": "846364af28a9b49f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CppLearn/HowToBeGreater.md",
+                "file": "CppLearn/Basic_Concept/Things_About/Things_about_random_generator.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HowToBeGreater"
+              "title": "Things_about_random_generator"
             }
           }
         ]
@@ -140,15 +140,26 @@
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "command-palette:打开命令面板": false,
-      "markdown-importer:打开 Markdown 格式转换器": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "markdown-importer:打开 Markdown 格式转换器": false
     }
   },
-  "active": "b6dc0d74a93df442",
+  "active": "a1c9ded4cbb5fff0",
   "lastOpenFiles": [
+    "CppLearn/Basic_Concept/Things_About/Things_about_random_generator.md",
+    "BlogSrc/README.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/00.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/02_compile_and_link.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/06_load_executable.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/08_organize_shared_lib_under_linux.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/10_memory.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/11_runtime_library.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/14_appendix.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/09_dynamic_link_under_windows.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/12_syscall_and_API.md",
+    "CppLearn/LearnFromOthers/Link_Load_Library/13_runtime_lib_implement.md",
+    "CppLearn/HowToBeGreater.md",
     "AppFrameThoughts/DistributeSystem/vector_clock.md",
     "ZImages/img/AppFrameThoughts/bitcask_read.jpg",
-    "CppLearn/HowToBeGreater.md",
     "AppFrameThoughts/Storage/Bitcask/01_intro.md",
     "AppFrameThoughts/Storage/Bitcask",
     "git_operations.py",
@@ -167,20 +178,8 @@
     "CppLearn/Basic_Concept/Multi_Process/02_things_about_async.md",
     "CppLearn/Framework/stdexec/01_general.md",
     "CppLearn/Framework/stdexec",
-    "CppLearn/Framework/asio/01_general.md",
     "CppLearn/Framework/asio",
-    "CppLearn/Compile_Link/compile/basic_in_depth.md",
-    "RustLearn/Others_blogs.md",
-    "AppFrameThoughts/Computer/011_numa_concept.md",
-    "AppFrameThoughts/RPC/01_thrift_general.md",
     "AppFrameThoughts/RPC",
-    "BlogSrc/flock_in_depth.md",
-    "BlogSrc/what_happens_between_socket_send_recv.md",
-    "BlogSrc/README.md",
-    "BlogSrc/Implement_a_cpp_coroutine_lib.md",
-    "CppLearn/Framework/leveldb/10_filter.md",
-    "PythonLearn/GoDeep/some_trick.md",
-    "CppLearn/Framework/leveldb/12_version_control.md",
     "Readings/Japanese",
     "CppLearn/Basic_Concept/C++_Advanced",
     "CppLearn/Basic_Concept/Cpp_Advanced"
