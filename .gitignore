@@ -2,4 +2,6 @@
 .obsidian/themes/
 .DS_Store
 .vscode/
-.obsidian/
+.obsidian/core-plugins.json
+.obsidian/graph.json
+.obsidian/workspace.json

@@ -24,6 +24,8 @@ def generate_markdown_tree(root_dir):
                 markdown.append(f"{indent}* [{dir_name}]")
             for item in sorted(os.listdir(path)):
                 item_path = os.path.join(path, item)
+                if os.path.isdir(item_path) and item.startswith('.'):  # 新增过滤条件
+                    continue
                 add_file_or_dir(item_path, level + 1)
 
     add_file_or_dir(root_dir)
