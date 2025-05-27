@@ -38,3 +38,7 @@
 	path = BlogSrc
 	url = git@github.com:TDAkory/BlogSrc.git
 	branch = master
+[submodule "JavaLearn"]
+	path = JavaLearn
+	url = git@github.com:TDAkory/JavaLearn.git
+	branch = master
