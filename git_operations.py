@@ -2,7 +2,7 @@ import os
 import subprocess
 
 # 直接设置需要遍历的子文件夹全局参数
-subfolders = ['AppFrameThoughts', 'BlogSrc', 'CppLearn', 'CSFundations', 'GoLearn', 'LinuxLearn', 'PythonLearn', 'Readings', 'RustLearn', 'ZImages']
+subfolders = ['AppFrameThoughts', 'BlogSrc', 'CppLearn', 'CSFundations', 'GoLearn', 'JavaLearn', 'LinuxLearn', 'PythonLearn', 'Readings', 'RustLearn', 'ZImages']
 
 # 定义处理子文件夹的函数
 def process_subfolder(subfolder, remote_branch='HEAD:master'):
