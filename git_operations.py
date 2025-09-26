@@ -33,4 +33,4 @@ def process_subfolder(subfolder, remote_branch='HEAD:master'):
 # 遍历指定子文件夹
 for subfolder in subfolders:
     process_subfolder(subfolder)
-process_subfolder('', 'main')
+process_subfolder('')
