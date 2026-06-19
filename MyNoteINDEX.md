@@ -3,28 +3,19 @@
 * [../ (Documents)](../DocumentsINDEX.md)
 * [.gitmodules](.gitmodules)
 * [.markdownlint.yml](.markdownlint.yml)
-* [AppFrameThoughts]
-  * [0-Theory]
+* [AppFrameThoughts](AppFrameThoughts/AppFrameThoughtsINDEX.md)
   * [AFTREADME.md](AppFrameThoughts/AFTREADME.md)
-  * [AI]
-  * [AccessControl](AppFrameThoughts/AccessControl/README.md)
-  * [Article]
-  * [BigData](AppFrameThoughts/BigData/README.md)
-  * [CNCF]
-  * [Cache]
-  * [Compress&Encode]
-  * [Computer]
-  * [Concurrency]
-  * [Consensus]
-  * [DistributeSystem]
-  * [MQ]
-  * [Observability]
-  * [QueryAndSearch]
-  * [RPC]
-  * [SoftSkills]
-  * [Storage]
-  * [VectorSearch]
-  * [Web]
+  * [00_Foundations](AppFrameThoughts/00_Foundations/FoundationsINDEX.md)
+  * [01_Computer](AppFrameThoughts/01_Computer/ComputerINDEX.md)
+  * [02_CompressionEncoding](AppFrameThoughts/02_CompressionEncoding/CompressionEncodingINDEX.md)
+  * [03_Communication](AppFrameThoughts/03_Communication/CommunicationINDEX.md)
+  * [04_DistributedSystem](AppFrameThoughts/04_DistributedSystem/DistributedSystemINDEX.md)
+  * [05_Storage](AppFrameThoughts/05_Storage/StorageINDEX.md)
+  * [06_DataSystem](AppFrameThoughts/06_DataSystem/DataSystemINDEX.md)
+  * [07_CloudNative](AppFrameThoughts/07_CloudNative/CloudNativeINDEX.md)
+  * [08_Observability](AppFrameThoughts/08_Observability/ObservabilityINDEX.md)
+  * [09_AI](AppFrameThoughts/09_AI/AIINDEX.md)
+  * [10_Engineering](AppFrameThoughts/10_Engineering/EngineeringINDEX.md)
   * [build_self_blog.md](AppFrameThoughts/build_self_blog.md)
 * [BlogSrc]
   * [BlogSrcREADME.md](BlogSrc/BlogSrcREADME.md)
