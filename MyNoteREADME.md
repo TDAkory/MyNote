@@ -3,8 +3,8 @@
 #### Config
 
 ```shell
-git config --local user.email "jyzhaoseu@163.com"
-git config --local user.name "Kory" 
+git config --local user.email "<your-email>"
+git config --local user.name "Kory"
 ```
 
 #### pic pos
