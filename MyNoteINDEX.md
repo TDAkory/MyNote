@@ -1,85 +1,16 @@
 # Table of contents
 
-* [../ (Documents)](../DocumentsINDEX.md)
-* [.gitmodules](.gitmodules)
-* [.markdownlint.yml](.markdownlint.yml)
 * [AppFrameThoughts](AppFrameThoughts/AppFrameThoughtsINDEX.md)
-  * [AFTREADME.md](AppFrameThoughts/AFTREADME.md)
-  * [00_Foundations](AppFrameThoughts/00_Foundations/FoundationsINDEX.md)
-  * [01_Computer](AppFrameThoughts/01_Computer/ComputerINDEX.md)
-  * [02_CompressionEncoding](AppFrameThoughts/02_CompressionEncoding/CompressionEncodingINDEX.md)
-  * [03_Communication](AppFrameThoughts/03_Communication/CommunicationINDEX.md)
-  * [04_DistributedSystem](AppFrameThoughts/04_DistributedSystem/DistributedSystemINDEX.md)
-  * [05_Storage](AppFrameThoughts/05_Storage/StorageINDEX.md)
-  * [06_DataSystem](AppFrameThoughts/06_DataSystem/DataSystemINDEX.md)
-  * [07_CloudNative](AppFrameThoughts/07_CloudNative/CloudNativeINDEX.md)
-  * [08_Observability](AppFrameThoughts/08_Observability/ObservabilityINDEX.md)
-  * [09_AI](AppFrameThoughts/09_AI/AIINDEX.md)
-  * [10_Engineering](AppFrameThoughts/10_Engineering/EngineeringINDEX.md)
-  * [build_self_blog.md](AppFrameThoughts/build_self_blog.md)
-* [BlogSrc]
-  * [BlogSrcREADME.md](BlogSrc/BlogSrcREADME.md)
-  * [Implement_a_cpp_coroutine_lib.md](BlogSrc/Implement_a_cpp_coroutine_lib.md)
-  * [LICENSE](BlogSrc/LICENSE)
-  * [what_happens_between_socket_send_recv.md](BlogSrc/what_happens_between_socket_send_recv.md)
-* [CSFundations]
-  * [CSFREADME.md](CSFundations/CSFREADME.md)
-  * [algorithem](CSFundations/algorithem/README.md)
-  * [big_fundament]
-  * [data_structure](CSFundations/data_structure/README.md)
-  * [system_design](CSFundations/system_design/README.md)
-  * [version_control]
-* [CppLearn]
-  * [Basic_Concept]
-  * [CPPLearnREADME.md](CppLearn/CPPLearnREADME.md)
-  * [Compile_Link](CppLearn/Compile_Link/README.md)
-  * [Framework]
-  * [HowToBeGreater.md](CppLearn/HowToBeGreater.md)
-  * [LearnFromOthers]
-  * [SIMD]
-  * [Test_Perf_Debug]
-  * [Topics]
-  * [Z-Books]
-* [GoLearn]
-  * [Basics]
-  * [GoLearnREADME.md](GoLearn/GoLearnREADME.md)
-  * [Model]
-  * [Packages]
-  * [SomeTips]
-* [JavaLearn]
-  * [basics]
-* [LinuxLearn]
-  * [LinuxLearnREADME.md](LinuxLearn/LinuxLearnREADME.md)
-  * [Z-Books]
-  * [basics]
-  * [eBPF]
-  * [godeep]
-  * [source_code]
+* [BlogSrc](BlogSrc/BlogSrcINDEX.md)
+* [CSFundations](CSFundations/CSFundationsINDEX.md)
+* [CppLearn](CppLearn/CppLearnINDEX.md)
+* [GoLearn](GoLearn/GoLearnINDEX.md)
+* [JavaLearn](JavaLearn/JavaLearnINDEX.md)
+* [LinuxLearn](LinuxLearn/LinuxLearnINDEX.md)
 * [MyNoteREADME.md](MyNoteREADME.md)
-* [PythonLearn]
-  * [GoDeep]
-  * [Packages]
-  * [PythonLearnREADME.md](PythonLearn/PythonLearnREADME.md)
-* [Readings]
-  * [Anythings.md](Readings/Anythings.md)
-  * [Cooking]
-  * [Japanese]
-  * [Management_Marketing]
-  * [Math]
-  * [ToBeRead.md](Readings/ToBeRead.md)
-  * [computer_science]
-  * [economy]
-  * [history]
-* [RustLearn]
-  * [Basics]
-  * [InDeep]
-  * [LinuxKernel]
-  * [Others_blogs.md](RustLearn/Others_blogs.md)
-  * [RustLearnREADME.md](RustLearn/RustLearnREADME.md)
-* [ZImages]
-  * [20210923122830.png](ZImages/20210923122830.png)
-  * [excalidraw]
-  * [img]
-* [dogit.sh](dogit.sh)
+* [PythonLearn](PythonLearn/PythonLearnINDEX.md)
+* [Readings](Readings/ReadingsINDEX.md)
+* [RustLearn](RustLearn/RustLearnINDEX.md)
+* [ZImages](ZImages/ZImagesINDEX.md)
 * [git_operations.py](git_operations.py)
 * [markdown_index.py](markdown_index.py)
