@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -63,7 +64,10 @@ TEXT_EXTENSIONS = {
 MAX_TEXT_FILE_BYTES = 2 * 1024 * 1024
 SCAN_LOG_NAME = 'note_security_scan.log'
 SCAN_CONFIG_NAME = 'note_security_scan_config.json'
+VERSIONED_SCAN_CONFIG_NAME = 'note_security_scan_config.json'
+IGNORED_TEXT_CANDIDATE_NAMES = {SCAN_LOG_NAME, '.DS_Store'}
 SECURITY_RULES = []
+SECURITY_ALLOWLIST = []
 SECURITY_CONFIG_PATH = None
 
 
@@ -85,6 +89,31 @@ class SecurityRule:
     message: str
 
 
+@dataclass
+class AllowlistEntry:
+    """已知安全的例外：命中安全规则但符合此处描述的内容将被放过。"""
+
+    name: str
+    match_pattern: re.Pattern
+    rules: set  # 为空表示对所有规则生效
+    path_pattern: re.Pattern  # 为 None 表示对所有文件生效
+
+    def allows(self, finding):
+        if self.rules and finding.rule not in self.rules:
+            return False
+        if self.path_pattern is not None and not self.path_pattern.search(finding.path):
+            return False
+        return self.match_pattern.search(finding.matched_text) is not None
+
+
+class SecurityScanError(RuntimeError):
+    pass
+
+
+def shutil_which(command):
+    return shutil.which(command)
+
+
 def default_security_config():
     """Default config only contains generic patterns; private keywords live in .git/info config."""
     return {
@@ -99,29 +128,43 @@ def default_security_config():
                 ],
             },
             {
+                'name': 'bearer-token',
+                'severity': 'HIGH',
+                'message': '疑似 Bearer/JWT 访问令牌，请删除。',
+                'patterns': [
+                    r'\bBearer\s+[A-Za-z0-9_=-]+\.[A-Za-z0-9_=-]+\.[A-Za-z0-9_.+/=-]+',
+                ],
+            },
+            {
+                'name': 'github-token',
+                'severity': 'HIGH',
+                'message': '疑似 GitHub 访问令牌，请删除。',
+                'patterns': [r'\bgh[pousr]_[A-Za-z0-9_]{20,}\b'],
+            },
+            {
                 'name': 'cloud-access-key',
                 'severity': 'HIGH',
                 'message': '疑似云服务访问密钥，请删除。',
-                'patterns': [r'AKIA[0-9A-Z]{16}'],
+                'patterns': [r'\b(?:AKIA|ASIA)[0-9A-Z]{16}\b'],
             },
             {
                 'name': 'private-key-block',
                 'severity': 'HIGH',
                 'message': '疑似私钥内容，请删除。',
-                'patterns': [r'-----BEGIN (?:RSA |DSA |EC |OPENSSH )?PRIVATE KEY-----'],
+                'patterns': [r'-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY(?: BLOCK)?-----'],
             },
             {
                 'name': 'local-absolute-path',
                 'severity': 'MEDIUM',
                 'message': '疑似本地绝对路径，不应同步到公开仓库；请改成泛化路径。',
-                'patterns': [r'(?<![:\w])/(?:Users|home|opt|var|tmp|mnt|data|Volumes)/[^\s`)>,;]+'],
+                'patterns': [r'(?<![:\w])/(?:Users|home|opt|var|data|Volumes)/[^\s`)>,;]+'],
             },
             {
                 'name': 'private-ip-address',
                 'severity': 'HIGH',
                 'message': '疑似私有网段 IP，请删除或泛化。',
                 'patterns': [
-                    r'\b(?:10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.\d{1,3}\.\d{1,3})\b',
+                    r'\b(?:10\.(?:25[0-5]|2[0-4]\d|1?\d?\d)\.(?:25[0-5]|2[0-4]\d|1?\d?\d)\.(?:25[0-5]|2[0-4]\d|1?\d?\d)|172\.(?:1[6-9]|2\d|3[0-1])\.(?:25[0-5]|2[0-4]\d|1?\d?\d)\.(?:25[0-5]|2[0-4]\d|1?\d?\d)|192\.168\.(?:25[0-5]|2[0-4]\d|1?\d?\d)\.(?:25[0-5]|2[0-4]\d|1?\d?\d)|100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.(?:25[0-5]|2[0-4]\d|1?\d?\d)\.(?:25[0-5]|2[0-4]\d|1?\d?\d))\b',
                 ],
             },
             {
@@ -131,11 +174,26 @@ def default_security_config():
                 'patterns': [r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'],
             },
         ],
+        'allowlist': [
+            {
+                'name': 'gitmodules-ssh-url',
+                'message': '.gitmodules 中的 SSH 远程 URL（git@host）是合法配置，非邮箱泄露。',
+                'rules': ['email-address'],
+                'path_pattern': r'(^|/)\.gitmodules$',
+                'match_pattern': r'^git@[A-Za-z0-9.-]+(?::|$)',
+            },
+            {
+                'name': 'documented-placeholder-secret',
+                'message': '文档中的空值、示例值或环境变量占位符不是实际凭证。',
+                'rules': ['credential-assignment'],
+                'match_pattern': r'(?i)(password|passwd|secret|auth[_-]?token|access[_-]?token|refresh[_-]?token|api[_-]?key|access[_-]?key|credential)\s*[:=]\s*(""|\'\'|changeme|example|<[^>]+>|\$\{[A-Z0-9_]+\}?)',
+            },
+        ],
     }
 
 
 def my_note_root():
-    return os.path.dirname(os.path.abspath(__file__))
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def root_git_info_dir():
@@ -157,12 +215,24 @@ def default_security_config_path():
     return os.path.join(root_git_info_dir(), SCAN_CONFIG_NAME)
 
 
+def versioned_security_config_path():
+    return os.path.join(my_note_root(), 'scripts', VERSIONED_SCAN_CONFIG_NAME)
+
+
+def base_security_config():
+    config_path = versioned_security_config_path()
+    if os.path.exists(config_path):
+        with open(config_path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    return default_security_config()
+
+
 def ensure_security_config(config_path):
     if os.path.exists(config_path):
         return False
     os.makedirs(os.path.dirname(config_path), exist_ok=True)
     with open(config_path, 'w', encoding='utf-8') as file:
-        json.dump(default_security_config(), file, ensure_ascii=False, indent=2)
+        json.dump(base_security_config(), file, ensure_ascii=False, indent=2)
         file.write('\n')
     return True
 
@@ -204,8 +274,29 @@ def load_security_rules_from_config(config_path):
     return rules
 
 
+def load_allowlist_from_config(config_path):
+    with open(config_path, 'r', encoding='utf-8') as file:
+        config = json.load(file)
+
+    entries = []
+    for entry in config.get('allowlist', []):
+        match_text = entry.get('match_pattern')
+        if not match_text:
+            continue
+        path_text = entry.get('path_pattern')
+        entries.append(
+            AllowlistEntry(
+                name=entry.get('name', 'allowlist'),
+                match_pattern=re.compile(match_text, re.IGNORECASE),
+                rules=set(entry.get('rules', []) or []),
+                path_pattern=re.compile(path_text) if path_text else None,
+            )
+        )
+    return entries
+
+
 def configure_security_rules(config_path=None, init_only=False):
-    global SECURITY_RULES, SECURITY_CONFIG_PATH
+    global SECURITY_RULES, SECURITY_ALLOWLIST, SECURITY_CONFIG_PATH
 
     resolved_path = os.path.abspath(config_path) if config_path else default_security_config_path()
     created = ensure_security_config(resolved_path)
@@ -219,11 +310,16 @@ def configure_security_rules(config_path=None, init_only=False):
         return created
 
     SECURITY_RULES = load_security_rules_from_config(resolved_path)
+    SECURITY_ALLOWLIST = load_allowlist_from_config(resolved_path)
     return created
 
 
 def run_git(args, capture_output=True, check=False):
-    return subprocess.run(['git', *args], capture_output=capture_output, text=True, check=check)
+    result = subprocess.run(['git', *args], capture_output=capture_output, text=True)
+    if check and result.returncode != 0:
+        stderr = (result.stderr or '').strip()
+        raise SecurityScanError(f'git {" ".join(args)} failed: {stderr}')
+    return result
 
 
 def normalize_git_path(path):
@@ -234,7 +330,7 @@ def is_text_candidate(path):
     path_obj = Path(path)
     if any(part == '.git' for part in path_obj.parts):
         return False
-    if path_obj.name == SCAN_LOG_NAME:
+    if path_obj.name in IGNORED_TEXT_CANDIDATE_NAMES:
         return False
     if path_obj.suffix.lower() in TEXT_EXTENSIONS:
         return True
@@ -257,12 +353,12 @@ def read_text_file(path):
 
 
 def collect_staged_files():
-    result = run_git(['diff', '--cached', '--name-only', '--diff-filter=ACMR'])
+    result = run_git(['diff', '--cached', '--name-only', '--diff-filter=ACMR'], check=True)
     return [normalize_git_path(line) for line in result.stdout.splitlines() if line.strip()]
 
 
 def collect_worktree_changed_files():
-    result = run_git(['status', '--porcelain'])
+    result = run_git(['status', '--porcelain'], check=True)
     files = []
     for line in result.stdout.splitlines():
         if not line:
@@ -278,12 +374,12 @@ def collect_worktree_changed_files():
 
 
 def collect_full_scan_files():
-    result = run_git(['ls-files', '--cached', '--others', '--exclude-standard'])
+    result = run_git(['ls-files', '--cached', '--others', '--exclude-standard'], check=True)
     return [normalize_git_path(line) for line in result.stdout.splitlines() if line.strip()]
 
 
 def collect_outgoing_files(remote_master_ref):
-    result = run_git(['diff', '--name-only', '--diff-filter=ACMR', f'{remote_master_ref}..HEAD'])
+    result = run_git(['diff', '--name-only', '--diff-filter=ACMR', f'{remote_master_ref}..HEAD'], check=True)
     return [normalize_git_path(line) for line in result.stdout.splitlines() if line.strip()]
 
 
@@ -299,11 +395,7 @@ def unique_existing_text_files(paths):
     return selected
 
 
-def scan_file(path):
-    text = read_text_file(path)
-    if text is None:
-        return []
-
+def scan_text(path, text):
     findings = []
     for line_number, line in enumerate(text.splitlines(), start=1):
         for rule in SECURITY_RULES:
@@ -311,17 +403,67 @@ def scan_file(path):
                 matched_text = match.group(0).strip()
                 if len(matched_text) > 120:
                     matched_text = matched_text[:117] + '...'
-                findings.append(
-                    SecurityFinding(
-                        severity=rule.severity,
-                        rule=rule.name,
-                        path=path,
-                        line_number=line_number,
-                        matched_text=matched_text,
-                        message=rule.message,
-                    )
+                finding = SecurityFinding(
+                    severity=rule.severity,
+                    rule=rule.name,
+                    path=path,
+                    line_number=line_number,
+                    matched_text=matched_text,
+                    message=rule.message,
                 )
+                if is_allowlisted(finding):
+                    continue
+                findings.append(finding)
     return findings
+
+
+def scan_file(path):
+    text = read_text_file(path)
+    if text is None:
+        raise SecurityScanError(f'候选文本文件无法读取或超过大小限制: {path}')
+    return scan_text(path, text)
+
+
+def is_allowlisted(finding):
+    return any(entry.allows(finding) for entry in SECURITY_ALLOWLIST)
+
+
+def git_object_text(object_id):
+    size_result = run_git(['cat-file', '-s', object_id], check=True)
+    size = int(size_result.stdout.strip())
+    if size > MAX_TEXT_FILE_BYTES:
+        raise SecurityScanError(f'Git blob 超过扫描大小限制: {object_id} ({size} bytes)')
+
+    data_result = subprocess.run(['git', 'cat-file', 'blob', object_id], capture_output=True)
+    if data_result.returncode != 0:
+        stderr = data_result.stderr.decode('utf-8', errors='replace').strip()
+        raise SecurityScanError(f'读取 Git blob 失败: {object_id}: {stderr}')
+    data = data_result.stdout
+    if b'\x00' in data:
+        return None
+    try:
+        return data.decode('utf-8')
+    except UnicodeDecodeError as error:
+        raise SecurityScanError(f'Git blob 不是 UTF-8 文本: {object_id}: {error}')
+
+
+def iter_git_blobs_for_ranges(ranges):
+    seen = set()
+    for rev_range in ranges:
+        result = run_git(['rev-list', '--objects', rev_range], check=True)
+        for line in result.stdout.splitlines():
+            parts = line.split(' ', 1)
+            object_id = parts[0]
+            path = normalize_git_path(parts[1]) if len(parts) == 2 else object_id
+            if object_id in seen:
+                continue
+            seen.add(object_id)
+            type_result = run_git(['cat-file', '-t', object_id], check=True)
+            if type_result.stdout.strip() != 'blob':
+                continue
+            if not is_text_candidate(path):
+                continue
+            yield object_id, path
 
 
 def get_scan_log_path():
@@ -334,9 +476,10 @@ def get_scan_log_path():
     return os.path.join(info_dir, SCAN_LOG_NAME)
 
 
-def write_scan_log(mode, scanned_files, findings, result_label):
+def write_scan_log(mode, scanned_files, findings, result_label, errors=None):
     log_path = get_scan_log_path()
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    errors = errors or []
     lines = [
         '=' * 80,
         f'time: {timestamp}',
@@ -345,8 +488,11 @@ def write_scan_log(mode, scanned_files, findings, result_label):
         f'mode: {mode}',
         f'scanned_files: {len(scanned_files)}',
         f'findings: {len(findings)}',
+        f'errors: {len(errors)}',
         f'result: {result_label}',
     ]
+    for error in errors:
+        lines.extend(['', '[ERROR] scan-error', f'message: {error}'])
     for finding in findings:
         lines.extend(
             [
@@ -364,11 +510,16 @@ def write_scan_log(mode, scanned_files, findings, result_label):
     return log_path
 
 
-def print_findings(mode, findings, log_path):
+def print_findings(mode, findings, log_path, errors=None):
+    errors = errors or []
     print('\n安全扫描失败，已暂停同步。')
     print(f'当前目录: {os.getcwd()}')
     print(f'扫描模式: {mode}')
     print(f'日志文件: {log_path}')
+    for error in errors:
+        print('')
+        print('[ERROR] scan-error')
+        print(f'说明: {error}')
     for finding in findings:
         print('')
         print(f'[{finding.severity}] {finding.rule}')
@@ -378,20 +529,75 @@ def print_findings(mode, findings, log_path):
     print('\n请删除或泛化上述内容后重新运行同步脚本。')
 
 
+def run_optional_gitleaks(mode, files):
+    if shutil_which('gitleaks') is None:
+        print('gitleaks 未安装：跳过可选增强扫描。')
+        return []
+
+    command = ['gitleaks', 'detect', '--no-banner', '--redact', '--exit-code', '1']
+    result = subprocess.run(command, capture_output=True, text=True)
+    if result.returncode == 0:
+        print('gitleaks 增强扫描通过。')
+        return []
+    if result.returncode == 1:
+        return [
+            SecurityFinding(
+                severity='HIGH',
+                rule='gitleaks',
+                path='.',
+                line_number=0,
+                matched_text='gitleaks finding',
+                message=(result.stdout or result.stderr or 'gitleaks detect reported leaks').strip()[:120],
+            )
+        ]
+    print(f'gitleaks 执行失败，按可选增强跳过: {(result.stderr or result.stdout).strip()}')
+    return []
+
+
 def run_security_scan(mode, files):
     scanned_files = unique_existing_text_files(files)
     findings = []
-    for path in scanned_files:
-        findings.extend(scan_file(path))
+    errors = []
+    try:
+        for path in scanned_files:
+            findings.extend(scan_file(path))
+        findings.extend(run_optional_gitleaks(mode, scanned_files))
+    except SecurityScanError as error:
+        errors.append(str(error))
 
-    result_label = 'BLOCKED' if findings else 'PASS'
-    log_path = write_scan_log(mode, scanned_files, findings, result_label)
+    result_label = 'BLOCKED' if findings or errors else 'PASS'
+    log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
 
-    if findings:
-        print_findings(mode, findings, log_path)
+    if findings or errors:
+        print_findings(mode, findings, log_path, errors=errors)
         return False
 
     print(f'安全扫描通过：mode={mode}, scanned_files={len(scanned_files)}, log={log_path}')
+    return True
+
+
+def run_security_scan_for_git_objects(mode, ranges):
+    scanned_files = []
+    findings = []
+    errors = []
+    try:
+        for object_id, path in iter_git_blobs_for_ranges(ranges):
+            text = git_object_text(object_id)
+            if text is None:
+                continue
+            scanned_path = f'{path}@{object_id[:12]}'
+            scanned_files.append(scanned_path)
+            findings.extend(scan_text(scanned_path, text))
+        findings.extend(run_optional_gitleaks(mode, scanned_files))
+    except SecurityScanError as error:
+        errors.append(str(error))
+
+    result_label = 'BLOCKED' if findings or errors else 'PASS'
+    log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
+    if findings or errors:
+        print_findings(mode, findings, log_path, errors=errors)
+        return False
+    print(f'安全扫描通过：mode={mode}, scanned_git_blobs={len(scanned_files)}, log={log_path}')
     return True
 
 
@@ -469,8 +675,7 @@ def handle_local_commits(remote_branch='HEAD:master', scan_only=False):
             ahead_count = int(rev_list.stdout.strip())
 
             if ahead_count > 0:
-                files_to_scan = collect_outgoing_files(ref)
-                if not run_security_scan(f'incremental-outgoing:{remote}', files_to_scan):
+                if not run_security_scan_for_git_objects(f'incremental-outgoing:{remote}', [f'{ref}..HEAD']):
                     ok = False
                     continue
                 print(f'本地比 remote {remote}/master 领先 {ahead_count} 个提交，执行推送...')
@@ -493,7 +698,7 @@ def run_full_scan():
 
 # 定义处理子文件夹的函数
 def process_subfolder(subfolder, remote_branch='HEAD:master', full_scan=False, scan_only=False):
-    my_note_path = os.path.dirname(os.path.abspath(__file__))
+    my_note_path = my_note_root()
     my_note_sub_path = os.path.join(my_note_path, subfolder)
     if not os.path.isdir(my_note_sub_path):
         print(f'跳过不存在的目录: {my_note_sub_path}')
@@ -519,7 +724,7 @@ def process_subfolder(subfolder, remote_branch='HEAD:master', full_scan=False, s
         os.chdir(original_dir)
 
 
-def parse_args():
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(description='同步笔记到 GitHub 前执行安全扫描。')
     parser.add_argument(
         '--init-security-config',
@@ -550,7 +755,7 @@ def parse_args():
         default='HEAD:master',
         help='推送目标分支，默认 HEAD:master。',
     )
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def selected_subfolders(args):
@@ -559,8 +764,8 @@ def selected_subfolders(args):
     return [*subfolders, '']
 
 
-def main():
-    args = parse_args()
+def main(argv=None):
+    args = parse_args(argv)
     if args.full_scan and args.scan_only:
         print('--full-scan 本身就是只扫描模式，不需要同时传 --scan-only。', file=sys.stderr)
         return 2

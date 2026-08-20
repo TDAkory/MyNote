@@ -12,5 +12,5 @@
 * [Readings](Readings/ReadingsINDEX.md)
 * [RustLearn](RustLearn/RustLearnINDEX.md)
 * [ZImages](ZImages/ZImagesINDEX.md)
-* [git_operations.py](git_operations.py)
-* [markdown_index.py](markdown_index.py)
+* [mynote.py](mynote.py)
+* [scripts](scripts/)

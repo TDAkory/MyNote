@@ -1,0 +1,102 @@
+{
+  "literal_rules": [],
+  "regex_rules": [
+    {
+      "name": "credential-assignment",
+      "severity": "HIGH",
+      "message": "疑似凭证、密钥或访问令牌赋值，请删除。",
+      "patterns": [
+        "(password|passwd|secret|auth[_-]?token|access[_-]?token|refresh[_-]?token|api[_-]?key|access[_-]?key|credential)\\s*[:=]\\s*[^\\s`\\]})>,;]+"
+      ]
+    },
+    {
+      "name": "bearer-token",
+      "severity": "HIGH",
+      "message": "疑似 Bearer/JWT 访问令牌，请删除。",
+      "patterns": [
+        "\\bBearer\\s+[A-Za-z0-9_=-]+\\.[A-Za-z0-9_=-]+\\.[A-Za-z0-9_.+/=-]+"
+      ]
+    },
+    {
+      "name": "github-token",
+      "severity": "HIGH",
+      "message": "疑似 GitHub 访问令牌，请删除。",
+      "patterns": [
+        "\\bgh[pousr]_[A-Za-z0-9_]{20,}\\b"
+      ]
+    },
+    {
+      "name": "cloud-access-key",
+      "severity": "HIGH",
+      "message": "疑似云服务访问密钥，请删除。",
+      "patterns": [
+        "\\b(?:AKIA|ASIA)[0-9A-Z]{16}\\b"
+      ]
+    },
+    {
+      "name": "private-key-block",
+      "severity": "HIGH",
+      "message": "疑似私钥内容，请删除。",
+      "patterns": [
+        "-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY(?: BLOCK)?-----"
+      ]
+    },
+    {
+      "name": "local-absolute-path",
+      "severity": "MEDIUM",
+      "message": "疑似本地绝对路径，不应同步到公开仓库；请改成泛化路径。",
+      "patterns": [
+        "(?<![:\\w])/(?:Users|home|opt|var|data|Volumes)/[^\\s`)>,;]+"
+      ]
+    },
+    {
+      "name": "private-ip-address",
+      "severity": "HIGH",
+      "message": "疑似私有网段 IP，请删除或泛化。",
+      "patterns": [
+        "\\b(?:10\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)|172\\.(?:1[6-9]|2\\d|3[0-1])\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)|192\\.168\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)|100\\.(?:6[4-9]|[7-9]\\d|1[01]\\d|12[0-7])\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.(?:25[0-5]|2[0-4]\\d|1?\\d?\\d))\\b"
+      ]
+    },
+    {
+      "name": "email-address",
+      "severity": "MEDIUM",
+      "message": "疑似邮箱地址，请确认是否为公开资料；个人/内部邮箱应删除。",
+      "patterns": [
+        "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b"
+      ]
+    }
+  ],
+  "allowlist": [
+    {
+      "name": "gitmodules-ssh-url",
+      "message": ".gitmodules 中的 SSH 远程 URL（git@host）是合法配置，非邮箱泄露。",
+      "rules": [
+        "email-address"
+      ],
+      "path_pattern": "(^|/)\\.gitmodules$",
+      "match_pattern": "^git@[A-Za-z0-9.-]+(?::|$)"
+    },
+    {
+      "name": "documented-placeholder-secret",
+      "message": "文档中的空值、示例值或环境变量占位符不是实际凭证。",
+      "rules": [
+        "credential-assignment"
+      ],
+      "match_pattern": "(?i)(password|passwd|secret|auth[_-]?token|access[_-]?token|refresh[_-]?token|api[_-]?key|access[_-]?key|credential)\\s*[:=]\\s*(\"\"|''|changeme|example|<[^>]+>|\\$\\{[A-Z0-9_]+\\}?)"
+    },
+    {
+      "name": "security-test-fixtures",
+      "message": "安全扫描单测中的固定假凭证样例。",
+      "rules": [
+        "email-address",
+        "credential-assignment",
+        "bearer-token",
+        "github-token",
+        "cloud-access-key",
+        "private-key-block"
+      ],
+      "path_pattern": "(^|/)test_git_operations_security\\.py$",
+      "match_pattern": "(demo@example\\.invalid|password\\s*=\\s*leaked-secret|Bearer\\s+[A-Za-z0-9_=-]+\\.[A-Za-z0-9_=-]+\\.[A-Za-z0-9_.+/=-]+|ghp_[A-Za-z0-9_]{20,}|ASIA[0-9A-Z]{16}|-----BEGIN PGP PRIVATE KEY(?: BLOCK)?-----|git@github\\.com)"
+    }
+  ]
+}
