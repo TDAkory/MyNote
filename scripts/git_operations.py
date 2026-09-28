@@ -5,6 +5,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -63,6 +64,8 @@ TEXT_EXTENSIONS = {
 
 MAX_TEXT_FILE_BYTES = 2 * 1024 * 1024
 SCAN_LOG_NAME = 'note_security_scan.log'
+SCAN_LOG_RELATIVE_DIR = ('.mynote', 'logs', 'security-scan')
+SCAN_LOG_RETENTION = 20
 SCAN_CONFIG_NAME = 'note_security_scan_config.json'
 VERSIONED_SCAN_CONFIG_NAME = 'note_security_scan_config.json'
 IGNORED_TEXT_CANDIDATE_NAMES = {SCAN_LOG_NAME, '.DS_Store'}
@@ -466,23 +469,86 @@ def iter_git_blobs_for_ranges(ranges):
             yield object_id, path
 
 
-def get_scan_log_path():
-    result = run_git(['rev-parse', '--git-dir'])
-    git_dir = result.stdout.strip()
-    if not os.path.isabs(git_dir):
-        git_dir = os.path.abspath(git_dir)
-    info_dir = os.path.join(git_dir, 'info')
-    os.makedirs(info_dir, exist_ok=True)
-    return os.path.join(info_dir, SCAN_LOG_NAME)
+def scan_log_directory():
+    return os.path.join(my_note_root(), *SCAN_LOG_RELATIVE_DIR)
+
+
+def sanitize_log_component(value, fallback):
+    sanitized = re.sub(r'[^A-Za-z0-9._-]+', '-', str(value)).strip('._-')
+    return sanitized or fallback
+
+
+def scan_log_target(repository_path=None):
+    root = os.path.realpath(my_note_root())
+    repository = os.path.realpath(repository_path or os.getcwd())
+    try:
+        if os.path.commonpath([root, repository]) == root:
+            relative = os.path.relpath(repository, root)
+        else:
+            relative = os.path.basename(repository)
+    except ValueError:
+        relative = os.path.basename(repository)
+    if relative == '.':
+        return 'root'
+    return sanitize_log_component(relative, 'root')
+
+
+def prune_scan_logs(log_dir, target, keep=SCAN_LOG_RETENTION):
+    filename_pattern = re.compile(
+        rf'^{re.escape(target)}_\d{{8}}-\d{{6}}-\d{{3}}_.+\.log$'
+    )
+    entries = []
+    for entry in os.scandir(log_dir):
+        if not entry.is_file() or filename_pattern.fullmatch(entry.name) is None:
+            continue
+        entries.append((entry.stat().st_mtime_ns, entry.name, entry.path))
+    entries.sort()
+    for _, _, path in entries[:-keep]:
+        os.remove(path)
+
+
+def publish_scan_log(temp_path, log_dir, base_name):
+    suffix = 0
+    while True:
+        suffix_text = '' if suffix == 0 else f'_{suffix}'
+        log_path = os.path.join(log_dir, f'{base_name}{suffix_text}.log')
+        reservation_path = os.path.join(log_dir, f'.{base_name}{suffix_text}.lock')
+        try:
+            descriptor = os.open(
+                reservation_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600
+            )
+        except FileExistsError:
+            suffix += 1
+            continue
+        os.close(descriptor)
+        if os.path.exists(log_path):
+            os.remove(reservation_path)
+            suffix += 1
+            continue
+        try:
+            os.replace(temp_path, log_path)
+        finally:
+            try:
+                os.remove(reservation_path)
+            except OSError as error:
+                print(f'警告: 清理安全扫描日志预留文件失败: {error}', file=sys.stderr)
+        break
+
+    return log_path
 
 
 def write_scan_log(mode, scanned_files, findings, result_label, errors=None):
-    log_path = get_scan_log_path()
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = datetime.now()
+    display_timestamp = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+    filename_timestamp = timestamp.strftime('%Y%m%d-%H%M%S-%f')[:-3]
+    target = scan_log_target()
+    mode_component = sanitize_log_component(mode, 'scan')
+    result_component = sanitize_log_component(result_label, 'UNKNOWN')
+    log_dir = scan_log_directory()
     errors = errors or []
     lines = [
         '=' * 80,
-        f'time: {timestamp}',
+        f'time: {display_timestamp}',
         f'repository: {os.getcwd()}',
         f'config: {SECURITY_CONFIG_PATH or "not configured"}',
         f'mode: {mode}',
@@ -505,8 +571,38 @@ def write_scan_log(mode, scanned_files, findings, result_label, errors=None):
             ]
         )
     lines.append('')
-    with open(log_path, 'a', encoding='utf-8') as file:
-        file.write('\n'.join(lines))
+    content = '\n'.join(lines)
+
+    temp_path = None
+    try:
+        os.makedirs(log_dir, exist_ok=True)
+        base_name = f'{target}_{filename_timestamp}_{mode_component}_{result_component}'
+        with tempfile.NamedTemporaryFile(
+            mode='w',
+            encoding='utf-8',
+            dir=log_dir,
+            prefix=f'.{target}_',
+            suffix='.tmp',
+            delete=False,
+        ) as file:
+            temp_path = file.name
+            file.write(content)
+            file.flush()
+            os.fsync(file.fileno())
+        log_path = publish_scan_log(temp_path, log_dir, base_name)
+        temp_path = None
+    except OSError as error:
+        if temp_path is not None:
+            try:
+                os.remove(temp_path)
+            except OSError:
+                pass
+        raise SecurityScanError(f'写入安全扫描日志失败: {error}') from error
+
+    try:
+        prune_scan_logs(log_dir, target)
+    except OSError as error:
+        print(f'警告: 清理旧安全扫描日志失败: {error}', file=sys.stderr)
     return log_path
 
 
@@ -515,7 +611,7 @@ def print_findings(mode, findings, log_path, errors=None):
     print('\n安全扫描失败，已暂停同步。')
     print(f'当前目录: {os.getcwd()}')
     print(f'扫描模式: {mode}')
-    print(f'日志文件: {log_path}')
+    print(f'日志文件: {log_path or "未写入"}')
     for error in errors:
         print('')
         print('[ERROR] scan-error')
@@ -566,7 +662,12 @@ def run_security_scan(mode, files):
         errors.append(str(error))
 
     result_label = 'BLOCKED' if findings or errors else 'PASS'
-    log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
+    try:
+        log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
+    except SecurityScanError as error:
+        errors.append(str(error))
+        print_findings(mode, findings, None, errors=errors)
+        return False
 
     if findings or errors:
         print_findings(mode, findings, log_path, errors=errors)
@@ -593,7 +694,12 @@ def run_security_scan_for_git_objects(mode, ranges):
         errors.append(str(error))
 
     result_label = 'BLOCKED' if findings or errors else 'PASS'
-    log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
+    try:
+        log_path = write_scan_log(mode, scanned_files, findings, result_label, errors=errors)
+    except SecurityScanError as error:
+        errors.append(str(error))
+        print_findings(mode, findings, None, errors=errors)
+        return False
     if findings or errors:
         print_findings(mode, findings, log_path, errors=errors)
         return False

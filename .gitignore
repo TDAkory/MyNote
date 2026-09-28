@@ -5,3 +5,5 @@ scripts/__pycache__/
 .obsidian/
 .stignore/
 docs/superpowers
+/.mynote/
+/docs/superpowers/
